@@ -40,17 +40,20 @@ resource "aws_lb_target_group" "vault_alb_tg" {
 # Vault ALB Target Group Attachment
 ################################################################################
 # Define vault instances using instance group, can use instance_tags or filter
-data "aws_instances" "vault_instances" {
-  instance_tags = {
-    instance_group = "vault"
-  }
-}
-resource "aws_lb_target_group_attachment" "vault_alb_tga" {
-  count            = length(data.aws_instances.vault_instances.ids)
-  target_id        = data.aws_instances.vault_instances.ids[count.index]
-  target_group_arn = aws_lb_target_group.vault_alb_tg.arn
-  port             = 443
-}
+
+# This should be done with a vm_extension instead 
+
+#data "aws_instances" "vault_instances" {
+#  instance_tags = {
+#    instance_group = "vault"
+#  }
+#}
+#resource "aws_lb_target_group_attachment" "vault_alb_tga" {
+#  count            = length(data.aws_instances.vault_instances.ids)
+#  target_id        = data.aws_instances.vault_instances.ids[count.index]
+#  target_group_arn = aws_lb_target_group.vault_alb_tg.arn
+#  port             = 443
+#}
 
 ################################################################################
 # Vault ALB Listeners - Vault API - HTTPS
