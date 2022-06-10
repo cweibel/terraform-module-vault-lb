@@ -88,7 +88,7 @@ resource "aws_alb_listener" "vault_alb_listener_8484" {
 ################################################################################
 resource "aws_route53_record" "vault_alb_record" {
 
-  count   = enable_route_53
+  count   = var.enable_route_53
   zone_id = var.route53_zone_id
   name    = var.vault_domain
   type    = "CNAME"
