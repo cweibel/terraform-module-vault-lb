@@ -3,7 +3,7 @@ variable resource_tags         {}  # AWS tags to apply to resources
 variable vpc_id                {}  # The VPC Id
 variable vault_domain          {}  # url used for vault domain
 variable route53_zone_id       {}  # Route53 zone id
-variable security_groups       {}  # Array of security groups to use
+variable security_groups       {type = list(string)}  # Array of security groups to use
 variable vault_acm_arn         {}  # ACM arn for the vault certificates
 
 variable enable_route_53       { default = 1 }  # Disable if using CloudFlare or other DNS
