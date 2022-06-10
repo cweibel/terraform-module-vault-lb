@@ -16,7 +16,7 @@ resource "aws_lb" "vault_alb" {
   name               = "vault-alb"
   internal           = true
   load_balancer_type = "application"
-  subnets            = var.subnet_ids
+  subnets            = [ var.subnet_ids ]
   security_groups    = var.security_groups
   tags               = merge({Name = "vault-alb"}, var.resource_tags)
 }
