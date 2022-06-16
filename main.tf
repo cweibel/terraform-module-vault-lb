@@ -99,3 +99,4 @@ resource "aws_route53_record" "vault_alb_record" {
   records = ["${aws_lb.vault_alb.dns_name}"]
 }
 
+output "dns_name" {value = aws_lb.vault_alb.dns_name}
