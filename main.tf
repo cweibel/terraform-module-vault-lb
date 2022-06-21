@@ -101,3 +101,4 @@ resource "aws_route53_record" "vault_alb_record" {
 }
 
 output "dns_name" {value = aws_lb.vault_alb.dns_name}
+output "lb_name"  {value = aws_lb.vault_alb.name }
